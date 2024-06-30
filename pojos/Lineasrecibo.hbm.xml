@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-jun-2024 22:33:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Lineasrecibo" table="lineasrecibo" catalog="agua" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="recibos" class="pojos.Recibos" fetch="select">
+            <column name="idRecibo" />
+        </many-to-one>
+        <property name="concepto" type="string">
+            <column name="concepto" length="50" not-null="true" />
+        </property>
+        <property name="subconcepto" type="string">
+            <column name="subconcepto" length="50" not-null="true" />
+        </property>
+        <property name="baseImponible" type="double">
+            <column name="baseImponible" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="porcentajeIva" type="double">
+            <column name="porcentajeIVA" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="importeIva" type="double">
+            <column name="importeIVA" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="m3incluidos" type="double">
+            <column name="m3incluidos" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="bonificacion" type="java.lang.Double">
+            <column name="bonificacion" precision="22" scale="0" />
+        </property>
+        <property name="importeBonificacion" type="java.lang.Double">
+            <column name="importeBonificacion" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
